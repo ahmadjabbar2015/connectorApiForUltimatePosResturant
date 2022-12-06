@@ -2133,6 +2133,6 @@ class SellController extends ApiController
         ->select('transaction_sell_lines.quantity','transactions.invoice_no','transactions.id','transactions.transaction_date','products.name','contacts.name as cname')->where('transactions.id','=',$id)
         ->get();
 
-        SellResource::collection($data);
+        return ["product_data" => $data];
     }
 }
