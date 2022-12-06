@@ -618,7 +618,7 @@ class SellController extends ApiController
         $query = Transaction::where('business_id', $business_id)
                         ->whereIn('id', $sell_ids);
 
-        $with = ['sell_lines', 'payment_lines'];
+        $with = ['sell_lines.product', 'payment_lines'];
 
         if (!empty(request()->input('send_purchase_details')) && request()->input('send_purchase_details') == 1) {
             $with[] = 'sell_lines.sell_line_purchase_lines';
